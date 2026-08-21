@@ -10,25 +10,3 @@ ip link set eth1 up
 ip link set vxlan10 up
 ip link set br0 up
 
-# == /etc/network/interfaces
-#
-#auto eth1
-#iface eth1 inet manual
-#    	up ip link set $IFACE up
-#    	down ip link set $IFACE down
-#
-#auto vxlan10
-#iface vxlan10 inet manual
-#   	pre-up ip link add $IFACE type vxlan id 10 remote 10.0.0.1 dstport 4789
-#	up ip link set $IFACE up
-#	down ip link set $IFACE down
-#	post-down ip link delete $IFACE
-#
-#auto br0
-#iface br0 inet manual
-#   	pre-up ip link add $IFACE type bridge
-#	post-up ip link set eth1 master $IFACE
-#	post-up ip link set vxlan10 master $IFACE
-#	up ip link set $IFACE up
-#	down ip link set $IFACE down
-#	post-down ip link delete $IFACE
